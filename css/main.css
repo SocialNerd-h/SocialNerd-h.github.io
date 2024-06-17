@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(185, 41%, 84%);
+  height: 100dvh;
+  font-family: "Space Mono", sans-serif;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+}
+
+.wrapper {
+  display: flex;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* logo */
+  .name {
+    margin-bottom: 3rem;
+    background: url(../images/logo.svg) no-repeat;
+    height: 6rem;
+    width: 6rem;
+  }
+  /* main part */
+  .calculator {
+    display: flex;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 1em;
+    width: 57.5rem;
+    height: 30rem;
+    letter-spacing: 0.04rem;
+
+    .left-col {
+      width: 50%;
+      padding: 2rem 1rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .bill {
+        font-size: 0.8rem;
+      }
+      .people {
+        font-size: 0.8rem;
+        .people-on-top {
+          display: flex;
+          justify-content: space-between;
+          span {
+            margin-right: 0.5rem;
+            color: red;
+            visibility: hidden;
+          }
+        }
+      }
+      input {
+        font-family: "Space Mono", sans-serif;
+        font-weight: 700;
+        background-color: hsl(189, 41%, 97%) !important ;
+        border: none;
+        border-radius: 0.3rem;
+        font-size: 1.5rem;
+        color: hsl(183, 100%, 15%);
+      }
+      .bill-amnt {
+        width: 98.3%;
+        height: 2.875rem;
+        text-align: right;
+        padding-right: 1rem;
+        margin-top: 0.5rem;
+        background: url(../images/icon-dollar.svg) no-repeat left;
+        background-origin: content-box;
+        padding-left: 1rem;
+        caret-color: hsl(172, 67%, 45%);
+        cursor: pointer;
+        &:focus {
+          outline: 0.2rem solid hsl(172, 67%, 45%);
+        }
+        &:hover {
+          outline: 0.2rem solid hsl(172, 67%, 45%);
+        }
+      }
+      .people-num {
+        width: 98.3%;
+        height: 2.875rem;
+        text-align: right;
+        padding-right: 1rem;
+        margin-top: 0.5rem;
+        background: url(../images/icon-person.svg) no-repeat left;
+        background-origin: content-box;
+        padding-left: 1rem;
+        caret-color: hsl(172, 67%, 45%);
+        cursor: pointer;
+        &:focus {
+          outline: 0.2rem solid rgb(38, 192, 171);
+        }
+        &:hover {
+          outline: 0.2rem solid hsl(172, 67%, 45%);
+        }
+      }
+    }
+
+    .right-col {
+      width: 50%;
+      background-color: hsl(183, 100%, 15%);
+      border-radius: 1rem;
+      padding: 2.5rem 3rem 2.5rem 3rem;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .reset-btn {
+        height: 3rem;
+        border: none;
+        border-radius: 0.3rem;
+        background-color: rgb(1, 116, 116);
+        color: hsl(183, 100%, 15%);
+        font-family: "Space Mono", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        &:hover {
+          background-color: hsl(185, 41%, 84%) !important;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+input::placeholder {
+  color: hsla(186, 14%, 43%, 0.473);
+}
+
+.tip-selection-wrap {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  .tip-selection {
+    display: grid;
+    grid-template: repeat(2, 30px) / 80px 80px 80px;
+    row-gap: 2rem;
+    column-gap: 3rem;
+    margin-top: 1rem;
+    .btn {
+      width: 7.3125rem;
+      height: 3rem;
+      font-family: "Space Mono", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      background-color: hsl(183, 100%, 15%);
+      color: white;
+      border-radius: 0.3rem;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background-color: hsl(185, 41%, 84%);
+        color: hsl(183, 100%, 15%);
+      }
+      &:focus {
+        outline: none;
+        background-color: hsl(172, 67%, 45%);
+        color: hsl(183, 100%, 15%);
+      }
+    }
+    input::placeholder {
+      text-align: center;
+    }
+  }
+}
+/*  
+//сделать цвета у кнопки !DONE
+//предупреждение о пустом инпуте и ограничение кол-ва знаков в поле инпута !DONE
+ 
+//не получатеся сделать отступ справа не меняя при этом центральное расположение CUSTOM placeholder
+//перепридумать триггер функции в js
+//цвет кнопки пропадает после нажатия в другое место
+// мобильная версия
+ */
+.custom-percent {
+  width: 7.3125rem;
+  height: 3rem;
+  text-align: right;
+  caret-color: hsl(172, 67%, 45%);
+  padding-right: 0.2rem;
+  cursor: pointer;
+  word-spacing: -10px;
+  &:focus {
+    outline: 0.2rem solid hsl(172, 67%, 45%);
+  }
+  &:hover {
+    outline: 0.2rem solid hsl(172, 67%, 45%);
+  }
+}
+
+.tip-amount {
+  display: flex;
+  justify-content: space-between;
+  height: 4.4rem;
+  .total-sum {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  .total-result {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+.final-number {
+  color: hsl(172, 67%, 45%);
+  font-size: 3rem;
+}
+.top {
+  color: white;
+  font-size: 0.9rem;
+}
+.bot {
+  font-size: 0.8rem;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
