@@ -8,9 +8,11 @@ let customPercent = document.getElementById("custom-percent");
 
 customPercent.addEventListener("input", () => {
   newPercent = customPercent.value;
-  console.log(newPercent);
+  allButtons.forEach((btn) => {
+    document.getElementById(btn.id).style.backgroundColor = "rgb(0, 73, 77)";
+    document.getElementById(btn.id).style.color = "white";
+  });
   if (newPercent && amountSum && peopleQty) {
-    /*console.log("ХУЙ");*/
     calculateTip(newPercent, amountSum, peopleQty);
   }
 });
@@ -22,12 +24,11 @@ allButtons.forEach((bt) => {
       document.getElementById(btn.id).style.color = "white";
     });
     newPercent = bt.value;
-    console.log(newPercent);
+    document.getElementById("custom-percent").value = "";
     document.getElementById(bt.id).style.backgroundColor = "rgb(38, 192, 171)";
     document.getElementById(bt.id).style.color = "rgb(0, 73, 77)";
 
     if (newPercent && amountSum && peopleQty) {
-      /*console.log("ХУЙ");*/
       calculateTip(newPercent, amountSum, peopleQty);
     }
   });
@@ -62,7 +63,6 @@ billAmount.addEventListener("input", () => {
   console.log(amountSum);
 
   if (newPercent && amountSum && peopleQty) {
-    /*console.log("ХУЙ");*/
     calculateTip(newPercent, amountSum, peopleQty);
   }
 });
@@ -97,16 +97,9 @@ peopleNum.addEventListener("input", () => {
   console.log(peopleQty);
 
   if (newPercent && amountSum && peopleQty) {
-    /*console.log("ХУЙ");*/
     calculateTip(newPercent, amountSum, peopleQty);
   }
-  /* calculateTip(newPercent, amountSum, peopleQty); */
 });
-
-if (newPercent && amountSum && peopleQty) {
-  /*console.log("ХУЙ");*/
-  calculateTip(newPercent, amountSum, peopleQty);
-}
 
 function isInputNumber(evnt) {
   let ch = String.fromCharCode(evnt.which);
@@ -118,16 +111,12 @@ function isInputNumber(evnt) {
 
 function calculateTip(percent, amountNum, peopleNum) {
   //
-  /*   console.log(amountNum);
-  console.log(peopleNum);
-  console.log(percent); */
   let tipAmount = ((amountNum / 100) * percent) / peopleNum;
   let totalSum = amountNum / peopleNum + tipAmount;
 
   //shortening the decimal
   totalSum = totalSum.toFixed(2);
   tipAmount = tipAmount.toFixed(2);
-  /*   console.log(tipAmount, totalSum); */
   resetBtn.style.backgroundColor = "rgb(38, 192, 171)";
   //inserting the result in html
   document.getElementById("tip").innerHTML = `$${tipAmount}`;
@@ -144,6 +133,10 @@ resetBtn.addEventListener("click", () => {
   newPercent = "";
   customPercent = document.getElementById("custom-percent");
   customPercent.value = "";
+  allButtons.forEach((btn) => {
+    document.getElementById(btn.id).style.backgroundColor = "rgb(0, 73, 77)";
+    document.getElementById(btn.id).style.color = "white";
+  });
   document.getElementById("input-error-people").style.visibility = "hidden";
   document.getElementById("people-num").style.outline = "none";
   document.getElementById("input-error-bill").style.visibility = "hidden";
