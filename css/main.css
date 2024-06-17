@@ -247,3 +247,108 @@ input::placeholder {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+@media only screen and (max-width: 945px) {
+  .wrapper {
+    .name {
+      margin-bottom: 0;
+    }
+    .calculator {
+      flex-direction: column;
+      align-items: center;
+      width: 30rem;
+      height: 50rem;
+      .left-col {
+        width: 100%;
+        align-items: center;
+        .bill {
+          width: 94%;
+        }
+        .tip-selection-wrap {
+          width: 94%;
+          margin-top: 2rem;
+          .tip-selection {
+            justify-items: center;
+            justify-content: center;
+          }
+        }
+        .people {
+          margin-top: 2rem;
+          width: 94%;
+        }
+      }
+      .right-col {
+        width: 100%;
+        height: 16rem;
+        .total {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 485px) {
+  .wrapper {
+    .name {
+      margin-top: 3rem;
+    }
+    .calculator {
+      width: 100%;
+      border-radius: 1em 1em 0 0;
+      padding: 2rem;
+      /* margin-top: 1rem; */
+      .left-col {
+        padding: 0;
+        .tip-selection {
+          display: grid;
+          grid-template: repeat(3, 30px) / 80px 80px;
+          row-gap: 2rem;
+          column-gap: 6rem;
+          margin-top: 1rem;
+          .btn {
+            width: 9.1rem;
+            height: 2.8rem;
+          }
+          .custom-percent {
+            width: 9.1rem;
+            height: 2.8rem;
+          }
+        }
+      }
+
+      .right-col {
+        margin-top: 2rem;
+        padding: 2rem 1.5rem 1.2rem 1.5rem;
+      }
+    }
+    .final-number {
+      font-size: 2.5rem;
+    }
+  }
+}
+@media only screen and (max-width: 423px) {
+  .wrapper {
+    .calculator {
+      .left-col {
+        .tip-selection {
+          column-gap: 5rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-height: 890px) {
+  .wrapper {
+    .name {
+      margin: 0;
+    }
+  }
+}
+@media only screen and (max-height: 845px) {
+  .wrapper {
+    .name {
+      visibility: hidden;
+    }
+  }
+}
