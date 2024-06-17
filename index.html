@@ -27,13 +27,19 @@
       <div class="calculator">
         <div class="left-col">
           <div class="bill">
-            <p>Bill</p>
+            <div class="bill-on-top">
+              <p>Bill</p>
+              <span id="input-error-bill"></span>
+            </div>
             <input
               type="text"
               maxlength="10"
+              inputmode="numeric"
+              pattern="[0-9]"
               id="amount"
               class="bill-amnt"
               placeholder="0"
+              onkeypress="isInputNumber(event)"
             />
           </div>
           <div class="tip-selection-wrap">
@@ -47,6 +53,8 @@
               <input
                 type="text"
                 id="custom-percent"
+                inputmode="numeric"
+                pattern="[0-9]"
                 class="custom-percent"
                 placeholder="Custom"
               />
@@ -55,12 +63,14 @@
           <div class="people">
             <div class="people-on-top">
               <p>Number of People</p>
-              <span id="zero">Can't be zero</span>
+              <span id="input-error-people"></span>
             </div>
             <input
               type="text"
               id="people-num"
               class="people-num"
+              inputmode="numeric"
+              pattern="[0-9]"
               placeholder="0"
               maxlength="5"
             />
